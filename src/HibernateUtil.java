@@ -4,16 +4,8 @@ import org.hibernate.cfg.Configuration;
 class HibernateUtil {
 
 
-        private static final SessionFactory sessionFactory;
+        private static final SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-        static {
-            try {
-                sessionFactory = new Configuration().configure().buildSessionFactory();
-            } catch (ExceptionInInitializerError ex) {
-                System.err.println("Initial SessionFactory creation failed: " + ex);
-                throw new ExceptionInInitializerError(ex);
-            }
-        }
 
 
          static SessionFactory getSessionFactory() {

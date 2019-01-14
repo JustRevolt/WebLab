@@ -12,22 +12,22 @@ public class Points implements Serializable {
     @Id
     @GeneratedValue(generator="increment")
     @GenericGenerator(name="increment", strategy = "increment")
-    @Column(name = "ID", nullable = false)
+    @Column(name = "\"ID\"", nullable = false)
     private Integer id;
-    @Column(name = "R", nullable = false)
+    @Column(name = "\"R\"", nullable = false)
     private Float r;
-    @Column(name = "X", nullable = false)
+    @Column(name = "\"X\"", nullable = false)
     private Float x;
-    @Column(name = "Y", nullable = false)
+    @Column(name = "\"Y\"", nullable = false)
     private Float y;
-    @Column(name = "check", nullable = false)
-    private Integer ischeck;
+    @Column(name = "\"check\"", nullable = false)
+    private Integer check;
 
     Points(Float r, Float x, Float y, int ischeck){
         this.r = r;
         this.x = x;
         this.y = y;
-        this.ischeck = ischeck;
+        this.check = ischeck;
       //  this.id = id;
     }
 
@@ -57,10 +57,10 @@ public class Points implements Serializable {
     }
 
     public Integer getIsCheck() {
-        return ischeck;
+        return check;
     }
     public void setIsCheck(Integer ischeck) {
-        this.ischeck = ischeck;
+        this.check = ischeck;
     }
 
     public Integer getId() {

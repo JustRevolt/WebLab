@@ -9,7 +9,7 @@
         <property name="hibernate.connection.username">s243855</property>
         <property name="hibernate.connection.password">yaj783</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
-        <property name="hibernate.connection.pool_size">10</property>
+        <!--<property name="hibernate.connection.pool_size">1</property>-->
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>

@@ -1,16 +1,15 @@
-
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
-import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Checker {
-    private List points = new LinkedList<>();
+    private List points;
     private float x = (float) 1.0;
     private float y = (float) 2.0;
     private float r = (float) 3.0;
-    private int ischeck;
+    private int check;
 
 
     public void setR(float r) {
@@ -40,39 +39,53 @@ public class Checker {
         float Y = y;
         float R = r;
         if(X<=0 && Y<=0 && X*X+Y*Y<=(R/2)*(R/2)){
-            ischeck = 1;
+            check = 1;
             return;
         }
         if(X>=0 && Y>=0 && Y<=(-1*X+0.5*R)){
-            ischeck = 1;
+            check = 1;
             return;
         }
         if(X>=0 && Y<=0 && X<=R && Y>=-R){
-            ischeck = 1;
+            check = 1;
             return;
         }
-        ischeck = 0;
+        check = 0;
     }
 
     private int getIsCheck() {
         setIscheck();
-        return ischeck;
+        return check;
     }
 
     public void newPoint()  {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
+        if (points == null) points = new LinkedList<Points>();
         Points p = new Points(getR(), getX(), getY(), getIsCheck());
         setPoint(p);
         session.save(p);
-//        session.getTransaction().commit();
+        session.getTransaction().commit();
     }
+
+
+
 
     private void setPoint(Points p){
        points.add(p);
     }
 
-    public List<Points> getPoints()  {
+//    public List<Points> getPoints()  {
+//        return points;
+//    }
+
+    public List<Points> getPoints() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            Query query = session.createQuery("from Points");
+            points = (List<Points>) query.list();
+
+        session.getTransaction().commit();
         return points;
     }
 
