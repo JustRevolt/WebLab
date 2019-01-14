@@ -71,6 +71,10 @@
             <h:dataTable style="border-collapse: collapse; width: 600px; margin: 10px 0 10px 45px;"
                          value="#{Ch.points}" var="point">
                 <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    #{point.id}
+                </h:column>
+                <h:column>
                     <f:facet name="header">X</f:facet>
                     #{point.x}
                 </h:column>
@@ -84,7 +88,8 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">CHECK</f:facet>
-                    #{point.getIsCheck()}
+                    ${point.isCheck == 1 ? "Попала" : "Мимо"}
+                   <!--/ #{point.getIsCheck()}-->
                 </h:column>
             </h:dataTable>
         </h:panelGroup>

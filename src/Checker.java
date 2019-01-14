@@ -1,9 +1,10 @@
 
 import java.sql.SQLException;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Checker {
-    private LinkedList points = new LinkedList<>();
+    private List points = new LinkedList<>();
     private float x = (float) 1.0;
     private float y = (float) 2.0;
     private float r = (float) 3.0;
@@ -65,7 +66,7 @@ public class Checker {
        points.add(p);
     }
 
-    public LinkedList<Points> getPoints() throws SQLException {
+    public List<Points> getPoints() throws SQLException {
       points = Factory.getInstance().getPointDao().getAllPoint();
         return points;
     }

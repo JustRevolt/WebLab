@@ -62,4 +62,10 @@ public class Points implements Serializable {
         this.ischeck = ischeck;
     }
 
+    public Integer getId() {
+        return id;
+    }
+    public  void setId(Integer id ){
+        this.id = id;
+    }
 }
