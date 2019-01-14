@@ -1,0 +1,16 @@
+body {
+    background-image: url(z2.jpg);
+}
+
+.container {
+    border-radius: 10px;
+    background-color: #42ffda;
+    font-size: 20px;
+    font-family: serif;
+    color: #255348;
+    padding: 1em 0;
+    margin: 0 auto;
+    width: 700px;
+    margin-bottom: 10px;
+    text-align: center;
+}

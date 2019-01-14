@@ -1,0 +1,7 @@
+<glassfish-web-app>
+    <jsp-config>
+        <property name="compilerSourceVM" value="6"/>
+        <property name="compilerTargetVM" value="6"/>
+    </jsp-config>
+    <parameter-encoding default-charset="UTF-8"/>
+</glassfish-web-app>

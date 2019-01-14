@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html  xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>MAIN</title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <script type="text/javascript" src="js/script.js">
+    </script>
+</h:head>
+
+<body onload="drawCanwas('canvas','#{Ch.r}')">
+
+    <div class="container content">
+        <h:form id="form" onclick="validate(this)">
+            <div class="form_contant">
+                <div id="Xvalues">
+                <h:outputLabel value="Координата X : "/><h:outputText id="value" value="#{Ch.x}"/><br/>
+                    <h:commandButton value = "-3" label = "-3" />
+                    <h:commandButton value = "-2" label = "-2" />
+                    <h:commandButton value = "-1" label = "-1" />
+                    <h:commandButton value = "0"  label = "0" />
+                    <h:commandButton value = "1"  label = "1" />
+                    <h:commandButton value = "2"  label = "2" />
+                    <h:commandButton value = "3"  label = "3" />
+                    <h:commandButton value = "4"  label = "4" />
+                    <h:commandButton value = "5"  label = "5" />
+                <h:inputHidden value="#{Ch.x}" id="myhiddenfield" >
+
+                </h:inputHidden>
+                <ajax execute="X" render="table"/>
+                </div>
+                <br/>
+                <h:outputLabel for="Y" value="Координата Y:"/><h:outputText id="yValue" value="#{Ch.y}"/><br/>
+                <h:inputText id="Y" value="#{Ch.y}">
+                    <f:validateDoubleRange minimum="-5.0" maximum="3.0"/>
+                    <ajax execute="Y" render="table" />
+                </h:inputText>
+                <h:message style="color: red" id="errMsg" for="Y"/>
+                <br/>
+
+                <h:outputLabel for="R" value="Коэффициент R: "/> <h:outputText id="rValue" value="#{Ch.r}"/><br/>
+                <h:inputText id="R" value="#{Ch.r}">
+                    <f:validateDoubleRange minimum="1.0" maximum="4.0"/>
+                    <ajax execute="R" render="table" />
+                </h:inputText><br/>
+                <h:message style="color: red" id="errMsg1" for="R"/>
+
+                <h:commandButton value="Проверить" id="button" action="#{Ch.newPoint()}" >
+                    <f:ajax execute="@form" render="table"/>
+                </h:commandButton>
+
+            </div>
+
+        </h:form>
+
+        <canvas id="canvas" width="300" height="300" onclick="clicCanvas('canvas','#{Ch.r}')" style="background-color: white; border-radius: 10px;"></canvas>
+
+
+        <h:panelGroup id="table">
+            <script>
+                drawCanwas('canvas','#{Ch.r}');
+            </script>
+            <ui:repeat value="#{Ch.points}" var="elem">
+                <script>
+                    drawPoint('canvas', '#{150 + elem.x/elem.r*130}','#{150 - elem.y/elem.r*130}', '#{elem.isCheck}');
+                </script>
+            </ui:repeat>
+
+            <h:dataTable style="border-collapse: collapse; width: 600px; margin: 10px 0 10px 45px;"
+                         value="#{Ch.points}" var="point">
+                <h:column>
+                    <f:facet name="header">X</f:facet>
+                    #{point.x}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Y</f:facet>
+                    #{point.y}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">R</f:facet>
+                    #{point.r}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">CHECK</f:facet>
+                    #{point.getIsCheck()}
+                </h:column>
+            </h:dataTable>
+        </h:panelGroup>
+
+
+        <a href="index.xhtml" class="center_btn">
+            <input class="submit" type="submit" name="submit" value=" На стартовую страницу "/>
+        </a>
+    </div>
+
+
+</body>>
+</html>

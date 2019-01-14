@@ -1,0 +1,87 @@
+
+.form_contant {
+    width: 40%;
+}
+
+input{
+    width: 90%;
+    height: auto;
+    background-color: #00a3ff;
+    color: black;
+    text-align: center;
+    font-size: large;
+    text-align-last: center;
+    margin: 3% 5% 0;
+    font-family: cursive;
+}
+
+.submit{
+    width: 20%;
+    height: auto;
+    background-color: aqua;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    font-family: cursive;
+    margin: 0 auto 0;
+}
+
+#values {
+    top: 0;
+    left: 10%;
+    margin: auto;
+    width: 60%;
+    text-align: center;
+}
+
+#button{
+    display: flex;
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+#button input{
+    width: 10%;
+}
+
+
+input:focus{
+    background: #0ed5ff;
+    border: 2px solid rgb(34, 153, 160);
+}
+
+
+.error{
+    color: red;
+    font-size: medium;
+    font-family: cursive;
+    margin: 0 0 3%;
+    text-align: center;
+}
+
+
+th{
+    width: 15%;
+}
+table {
+    width: auto;
+    font-size: 25px;
+    background-color: rgba(34, 153, 160, 0.98);
+    color: #000000;
+    margin: 0 10px 10px;
+    size: 20px
+}
+
+tbody {
+    background-color: aqua;
+    color: #000000;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+thead {
+    background-color: rgba(34, 153, 160, 0.98);
+    color: #000000;
+    margin: 0 auto;
+}
