@@ -1,7 +1,8 @@
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
-import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.List;
 
 public class PointDaoImp  implements PointDao {
@@ -18,16 +19,16 @@ public class PointDaoImp  implements PointDao {
 
     @Override
     public List getAllPoint() {
-        List<Points> points = (List<Points>)  HibernateUtil.getSessionFactory().openSession().createQuery("From " +
-                "Points").list();
-        return points;
+        List<Points> results = new LinkedList<>();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+            Query query = session.createQuery("from Points");
+//            results = (List<Points>) query.list();
+        return results;
     }
 
     @Override
     public void deletePoint(Points point){
-        Session session = null;
-
-            session = HibernateUtil.getSessionFactory().openSession();
+       Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.delete(point);
             session.getTransaction().commit();
