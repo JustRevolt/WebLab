@@ -11,7 +11,7 @@ public class Checker {
     private float y = (float) 2.0;
     private float r = (float) 3.0;
     private int ischeck;
-    private int id = 0;
+
 
     public void setR(float r) {
         this.r = r;
@@ -33,12 +33,7 @@ public class Checker {
     public float getY() {
         return y;
     }
-    public Integer getId() {
-        return id;
-    }
-    public  void setId(Integer id ){
-        this.id = id;
-    }
+
 
     private void setIscheck(){
         float X = x;
@@ -77,7 +72,7 @@ public class Checker {
        points.add(p);
     }
 
-    public List<Points> getPoints() throws SQLException {
+    public List<Points> getPoints()  {
         return points;
     }
 

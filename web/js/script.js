@@ -87,24 +87,24 @@ function isArea(x, y, R) {
     x = R * (x - 150) / 130;
     y = R * (150 - y) / 130;
     if(x<=0 && y<=0 && x*x+y*y<=(R/2)*(R/2)){
-        return 'true';
+        return 1;
     }
     if(x>=0 && y>=0 && y<=(-1*x+0.5*R)){
-        return 'true';
+        return 1;
     }
     if(x>=0 && y<=0 && x<=R && y>=-R){
-        return 'true';
+        return 1;
     }
-    return 'false';
+    return 0;
 }
 
-function drawPoint(id, x, y, idArea){
+function drawPoint(id, x, y, isArea){
     var canvas = document.getElementById(id),
         context = canvas.getContext("2d");
     context.beginPath();
     context.arc(x, y, 2, 0, 2 * Math.PI, false);
     context.closePath();
-    if(isArea === 'true'){
+    if(isArea == 1){
         context.strokeStyle = "green";
         context.fillStyle = "green";
     } else {
