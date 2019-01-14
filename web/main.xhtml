@@ -17,15 +17,15 @@
             <div class="form_contant">
                 <div id="Xvalues">
                 <h:outputLabel value="Координата X : "/><h:outputText id="value" value="#{Ch.x}"/><br/>
-                    <h:commandButton value = "-3" label = "-3" />
-                    <h:commandButton value = "-2" label = "-2" />
-                    <h:commandButton value = "-1" label = "-1" />
-                    <h:commandButton value = "0"  label = "0" />
-                    <h:commandButton value = "1"  label = "1" />
-                    <h:commandButton value = "2"  label = "2" />
-                    <h:commandButton value = "3"  label = "3" />
-                    <h:commandButton value = "4"  label = "4" />
-                    <h:commandButton value = "5"  label = "5" />
+                    <h:commandButton value = "-3" label = "-3"  action="#{Ch.setX('-3')}"/>
+                    <h:commandButton value = "-2" label = "-2" action="#{Ch.setX('-2')}"/>
+                    <h:commandButton value = "-1" label = "-1" action="#{Ch.setX('-1')}"/>
+                    <h:commandButton value = "0"  label = "0" action="#{Ch.setX('0')}"/>
+                    <h:commandButton value = "1"  label = "1" action="#{Ch.setX('1')}"/>
+                    <h:commandButton value = "2"  label = "2" action="#{Ch.setX('2')}"/>
+                    <h:commandButton value = "3"  label = "3" action="#{Ch.setX('3')}"/>
+                    <h:commandButton value = "4"  label = "4" action="#{Ch.setX('4')}"/>
+                    <h:commandButton value = "5"  label = "5" action="#{Ch.setX('5')}"/>
                 <h:inputHidden value="#{Ch.x}" id="myhiddenfield" >
 
                 </h:inputHidden>

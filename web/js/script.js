@@ -98,7 +98,7 @@ function isArea(x, y, R) {
     return 'false';
 }
 
-function drawPoint(id, x, y, isArea){
+function drawPoint(id, x, y, idArea){
     var canvas = document.getElementById(id),
         context = canvas.getContext("2d");
     context.beginPath();
